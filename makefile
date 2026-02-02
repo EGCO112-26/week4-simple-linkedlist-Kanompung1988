@@ -1,8 +1,8 @@
 compile: main.c 
-	 gcc main.c -o ming
+	 gcc main.c -o Kanompung
 
-run: ming
-	 ./ming
+run: Kanompung
+	 ./Kanompung
 
-clean: ming
-	 rm ming
+clean: Kanompung
+	 rm Kanompung
