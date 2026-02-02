@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
 
     printf("%d\n", head ->value ); //what value for 5
     printf("%d\n", head ->next->value ); //what value for 8
-    
+    printf("%d\n", head ->next->next->value ); //what value for 11
 /*  Exercise I
     1. Add 1 more node at the end
     2. Add value(11)
