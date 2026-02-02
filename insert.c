@@ -57,11 +57,10 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // อ่านข้อมูลจาก argv และเพิ่มเข้าไปในลิงก์ลิสต์
     for (int i = 1; i < argc; i += 3) {
-        int id = atoi(argv[i]);          // แปลง id จาก string เป็น int
-        char* name = argv[i + 1];        // อ่านชื่อ
-        float gpa = atof(argv[i + 2]);   // แปลง gpa จาก string เป็น float
+        int id = atoi(argv[i]);
+        char* name = argv[i + 1];
+        float gpa = atof(argv[i + 2]);
 
         insertStudent(&head, id, name, gpa);
     }
