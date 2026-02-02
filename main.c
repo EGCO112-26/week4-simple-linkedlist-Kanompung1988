@@ -104,7 +104,5 @@ int main(int argc, const char * argv[]) {
         tmp = next;
     }
     head = NULL;
-    printf("All nodes freed!\n");
-    
     return 0;
 }
