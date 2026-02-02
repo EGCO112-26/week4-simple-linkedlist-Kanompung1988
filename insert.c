@@ -48,17 +48,29 @@ void deleteList(struct student** head) {
     printf("Linked list deleted.\n");
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     struct student* head = NULL;
 
-    // Insert using input arguments
-    insertStudent(&head, 1, "Alice", 3.50);
-    insertStudent(&head, 2, "Bob", 3.20);
-    insertStudent(&head, 3, "Charlie", 3.80);
+    // ตรวจสอบว่ามีอาร์กิวเมนต์เพียงพอหรือไม่
+    if (argc < 4 || (argc - 1) % 3 != 0) {
+        printf("Usage: %s <id1> <name1> <gpa1> [<id2> <name2> <gpa2> ...]\n", argv[0]);
+        return 1;
+    }
 
+    // อ่านข้อมูลจาก argv และเพิ่มเข้าไปในลิงก์ลิสต์
+    for (int i = 1; i < argc; i += 3) {
+        int id = atoi(argv[i]);          // แปลง id จาก string เป็น int
+        char* name = argv[i + 1];        // อ่านชื่อ
+        float gpa = atof(argv[i + 2]);   // แปลง gpa จาก string เป็น float
+
+        insertStudent(&head, id, name, gpa);
+    }
+
+    // พิมพ์ข้อมูลในลิงก์ลิสต์
     printf("Student List:\n");
     printList(head);
 
+    // ลบลิงก์ลิสต์
     deleteList(&head);
 
     return 0;
