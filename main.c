@@ -34,12 +34,16 @@ void insertStudent(struct student** head, int id, char name[]) {
         temp->next = newNode;
     }
 }
-//KKK
 // Print all students in the linked list
 void printList(struct student* head) {
     struct student* temp = head;
     while (temp != NULL) {
-        printf("%d %s\n", temp->id, temp->name);
+        // Remove trailing spaces from name before printing
+        int len = strlen(temp->name);
+        while (len > 0 && temp->name[len - 1] == ' ') {
+            len--;
+        }
+        printf("%d %.*s\n", temp->id, len, temp->name);
         temp = temp->next;
     }
 }
