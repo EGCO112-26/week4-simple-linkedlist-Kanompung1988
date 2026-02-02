@@ -86,7 +86,6 @@ int main(int argc, const char * argv[]) {
 
     printf("%d\n", head2 ->value ); //what value for 5
     printf("%d\n", head2 ->next->value ); //what value for 8
-    printf("%d\n", head2 ->next->next->value ); //what value for 11
 /*  Exercise I
     1. Add 1 more node at the end
     2. Add value(11)
@@ -96,6 +95,9 @@ int main(int argc, const char * argv[]) {
     c_node.value = 11;
     c_node.next = NULL;
     b.next = &c_node;
+    
+    printf("%d\n", head2 ->next->next->value ); //what value for 11
+    printf("%d\n", head2 ->next->next->value ); //what value for 11
     
 /*  Exercise II
         1. Add 1 more node at the beginning!!!!
