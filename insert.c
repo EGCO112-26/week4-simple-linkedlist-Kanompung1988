@@ -32,8 +32,7 @@ void insertStudent(struct student** head, int id, char name[], float gpa) {
 void printList(struct student* head) {
     struct student* temp = head;
     while (temp != NULL) {
-        printf("ID: %d, Name: %s, GPA: %.2f\n",
-               temp->id, temp->name, temp->gpa);
+        printf("%d %s\n", temp->id, temp->name);
         temp = temp->next;
     }
 }
@@ -45,28 +44,26 @@ void deleteList(struct student** head) {
         *head = (*head)->next;
         free(temp);
     }
-    printf("Linked list deleted.\n");
 }
 
 int main(int argc, char* argv[]) {
     struct student* head = NULL;
 
     // ตรวจสอบว่ามีอาร์กิวเมนต์เพียงพอหรือไม่
-    if (argc < 4 || (argc - 1) % 3 != 0) {
-        printf("Usage: %s <id1> <name1> <gpa1> [<id2> <name2> <gpa2> ...]\n", argv[0]);
+    if (argc < 3 || (argc - 1) % 2 != 0) {
+        printf("Usage: %s <id1> <name1> [<id2> <name2> ...]\n", argv[0]);
         return 1;
     }
 
-    for (int i = 1; i < argc; i += 3) {
+    // อ่านข้อมูลจาก argv และเพิ่มเข้าไปในลิงก์ลิสต์
+    for (int i = 1; i < argc; i += 2) {
         int id = atoi(argv[i]);
         char* name = argv[i + 1];
-        float gpa = atof(argv[i + 2]);
 
-        insertStudent(&head, id, name, gpa);
+        insertStudent(&head, id, name, 0.0);
     }
 
     // พิมพ์ข้อมูลในลิงก์ลิสต์
-    printf("Student List:\n");
     printList(head);
 
     // ลบลิงก์ลิสต์
