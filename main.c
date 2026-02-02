@@ -39,7 +39,7 @@ void insertStudent(struct student** head, int id, char name[]) {
 void printList(struct student* head) {
     struct student* temp = head;
     while (temp != NULL) {
-        printf("%d %s\n", temp->id, temp->name);
+        printf("%d %s \n", temp->id, temp->name);
         temp = temp->next;
     }
 }
